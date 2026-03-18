@@ -1,0 +1,187 @@
+@if (isOpenSidebar()) {
+  <div class="fixed inset-0 bg-gray-600/55 z-40 lg:hidden"></div>
+}
+<aside
+  class="bg-primary h-screen transition-all duration-300 ease-in-out p-4 overflow-y-auto fixed overflow-scroll z-50 lg:translate-x-0 shadow-lg"
+  [class.w-74]="isOpenSidebar()"
+  [class.w-26]="!isOpenSidebar()"
+  [class.-translate-x-full]="!isOpenSidebar()"
+>
+  @if (!isOpenSidebar()) {
+    <fa-icon
+      [icon]="arrowRight"
+      class="flex items-center gap-3 px-4 py-3 transition-all duration-200 cursor-pointer mb-1 text-2xl"
+      (click)="layoutServices.toggleSidebar()"
+    ></fa-icon>
+  } @else {
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <fa-icon [icon]="KiwiBird" class="text-3xl cursor-pointer"></fa-icon>
+        <div class="flex flex-col">
+          <h1 class="text-xl font-semibold">Admin</h1>
+          <h1 class="text-xl font-semibold">Dashboard</h1>
+        </div>
+      </div>
+
+      <fa-icon
+        [icon]="arrowLeft"
+        class="flex gap-3 py-3 transition-all cursor-pointer mb-1 text-2xl"
+        (click)="layoutServices.toggleSidebar()"
+      ></fa-icon>
+    </div>
+  }
+  <!-- pages -->
+  <div class="my-4">
+    <p class="text-gray-800 mb-2">pages</p>
+
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="bg-gray-800 text-white opacity-100"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="Home" class="text-xl"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Dashboard</p>
+      }
+    </a>
+
+    <a
+      routerLink="/users"
+      routerLinkActive="bg-gray-800 text-white opacity-100"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="Users" class="text-xl cursor-pointer"></fa-icon>
+
+      @if (isOpenSidebar()) {
+        <p>Users</p>
+      }
+    </a>
+
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="Industry" class="text-xl cursor-pointer"></fa-icon>
+
+      @if (isOpenSidebar()) {
+        <p>Products</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="CartShopping" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Orders</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="Calendar" class="text-xl cursor-pointer"></fa-icon>
+
+      @if (isOpenSidebar()) {
+        <p>Calendar</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="QuestionCircle" class="text-xl cursor-pointer"></fa-icon>
+
+      @if (isOpenSidebar()) {
+        <p>FQA</p>
+      }
+    </a>
+  </div>
+  <!-- Analytics -->
+
+  <div class="my-4">
+    <p class="text-gray-800 mb-2">Analytics</p>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="PieChart" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Pie Chart</p>
+      }
+    </a>
+
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="ChartLine" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Line Chart</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="ChartSimple" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Simple Chart</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="ChartColumn" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Column Chart</p>
+      }
+    </a>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="ChartArea" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Area Chart</p>
+      }
+    </a>
+  </div>
+
+  <!-- profile -->
+  <div class="my-4">
+    <p class="text-gray-800 mb-2">Profile</p>
+    <a
+      routerLink="/products"
+      routerLinkActive="bg-gray-800 text-white "
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      [class.justify-center]="!isOpenSidebar()"
+    >
+      <fa-icon [icon]="user" class="text-xl cursor-pointer"></fa-icon>
+      @if (isOpenSidebar()) {
+        <p>Profile</p>
+      }
+    </a>
+  </div>
+</aside>

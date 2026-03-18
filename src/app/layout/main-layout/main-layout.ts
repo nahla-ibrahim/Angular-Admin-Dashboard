@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Navbar } from '../navbar/navbar';
+import { Sidebar } from '../sidebar/sidebar';
+import { LayoutServices } from '../../Core/services/layout-services';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Navbar, Sidebar, NgClass],
   templateUrl: './main-layout.html',
   styleUrl: './main-layout.css',
 })
-export class MainLayout {}
+export class MainLayout {
+  layoutServices = inject(LayoutServices);
+
+  isOpenSidebar = this.layoutServices.openSidebar;
+}

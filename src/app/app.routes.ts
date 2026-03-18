@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { Login } from './auth/login/login';
+import { Login } from './Features/auth/login/login';
 import { MainLayout } from './layout/main-layout/main-layout';
 import { authGuard } from './Core/Guards/auth-guard';
 import { guestGuard } from './Core/Guards/guest-guard';
@@ -12,8 +12,7 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: Login,
-    loadComponent: () => import('./auth/login/login').then((m) => m.Login),
+    loadComponent: () => import('./Features/auth/login/login').then((m) => m.Login),
     canActivate: [guestGuard],
   },
   {
@@ -23,7 +22,7 @@ export const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        loadComponent: () => import('./dashboard/dashboard').then((m) => m.Dashboard),
+        loadComponent: () => import('./Features/dashboard/dashboard').then((m) => m.Dashboard),
       },
     ],
   },
