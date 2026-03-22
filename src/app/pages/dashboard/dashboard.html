@@ -1,0 +1,74 @@
+<div class="bg-gray-200 flex items-center justify-between py-3">
+  <div class="container mx-auto px-3 my-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <app-white-card>
+        <p class="text-gray-500">Users</p>
+        <h2 class="text-2xl font-bold">24</h2>
+      </app-white-card>
+      <app-white-card>
+        <p class="text-gray-500">Products</p>
+        <h2 class="text-2xl font-bold">62</h2>
+      </app-white-card>
+      <app-white-card>
+        <p class="text-gray-500">Orders</p>
+        <h2 class="text-2xl font-bold">44</h2>
+      </app-white-card>
+      <app-white-card>
+        <p class="text-gray-500">Orders</p>
+        <h2 class="text-2xl font-bold">44</h2>
+      </app-white-card>
+    </div>
+    <!-- charts -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 auto-rows-fr">
+      <app-white-card>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">Analytics</h3>
+          <span class="text-sm text-gray-400">Last 6 months</span>
+        </div>
+        <div class="h-80 w-full">
+          <app-chart type="line" [data]="lineData" [options]="lineOptions"></app-chart>
+        </div>
+      </app-white-card>
+      <app-white-card>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">Analytics</h3>
+          <span class="text-sm text-gray-400">Last 6 months</span>
+        </div>
+        <div class="h-80 w-full">
+          <app-chart type="bar" [data]="barData" [options]="barOptions"></app-chart>
+        </div>
+      </app-white-card>
+      <app-white-card>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">Analytics</h3>
+          <span class="text-sm text-gray-400">Last 6 months</span>
+        </div>
+        <div class="h-80 w-full">
+          <app-chart type="bar" [options]="horizontalOptions" [data]="horizontalData"></app-chart>
+        </div>
+      </app-white-card>
+      <app-white-card>
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="text-lg font-semibold">Analytics</h3>
+          <span class="text-sm text-gray-400">Last 6 months</span>
+        </div>
+        <div class="h-80 w-full">
+          <app-chart type="pie" [options]="pieOptions" [data]="pieData"></app-chart>
+        </div>
+      </app-white-card>
+    </div>
+    <div class="bg-white p-4 rounded-xl shadow">
+      <h3 class="text-lg font-semibold mb-4">Recent Users</h3>
+
+      @for (user of users; track $index) {
+        <div class="flex justify-between py-2 border-b">
+          <span>{{ user }} {{ user }}</span>
+          <span class="text-gray-500">{{ user }} email</span>
+        </div>
+      }
+    </div>
+    <button (click)="logout()" class="p-3 bg-primary rounded-2xl my-6 cursor-pointer">
+      Logout
+    </button>
+  </div>
+</div>

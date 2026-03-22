@@ -16,8 +16,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
-import { LayoutServices } from '../../Core/services/layout-services';
-import { Dashboard } from '../../Features/dashboard/dashboard';
+import { LayoutServices } from '../../core/services/layout-services';
+import { Dashboard } from '../../pages/dashboard/dashboard';
 
 @Component({
   selector: 'app-navbar',

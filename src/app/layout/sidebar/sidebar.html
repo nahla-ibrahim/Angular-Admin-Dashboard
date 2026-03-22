@@ -112,7 +112,7 @@
   <div class="my-4">
     <p class="text-gray-800 mb-2">Analytics</p>
     <a
-      routerLink="/products"
+      routerLink="/pieChart"
       routerLinkActive="bg-gray-800 text-white "
       class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
       [class.justify-center]="!isOpenSidebar()"
@@ -124,7 +124,7 @@
     </a>
 
     <a
-      routerLink="/products"
+      routerLink="/lineChart"
       routerLinkActive="bg-gray-800 text-white "
       class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
       [class.justify-center]="!isOpenSidebar()"
@@ -135,36 +135,25 @@
       }
     </a>
     <a
-      routerLink="/products"
+      routerLink="/barChart"
       routerLinkActive="bg-gray-800 text-white "
       class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
       [class.justify-center]="!isOpenSidebar()"
     >
-      <fa-icon [icon]="ChartSimple" class="text-xl cursor-pointer"></fa-icon>
+      <fa-icon [icon]="ChartBar" class="text-xl cursor-pointer"></fa-icon>
       @if (isOpenSidebar()) {
-        <p>Simple Chart</p>
+        <p>Bar Chart</p>
       }
     </a>
     <a
-      routerLink="/products"
+      routerLink="/horizontalBarChart"
       routerLinkActive="bg-gray-800 text-white "
       class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
       [class.justify-center]="!isOpenSidebar()"
     >
-      <fa-icon [icon]="ChartColumn" class="text-xl cursor-pointer"></fa-icon>
+      <fa-icon [icon]="horizontalChart" class="text-xl cursor-pointer"></fa-icon>
       @if (isOpenSidebar()) {
-        <p>Column Chart</p>
-      }
-    </a>
-    <a
-      routerLink="/products"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
-      [class.justify-center]="!isOpenSidebar()"
-    >
-      <fa-icon [icon]="ChartArea" class="text-xl cursor-pointer"></fa-icon>
-      @if (isOpenSidebar()) {
-        <p>Area Chart</p>
+        <p>Horizontal Chart</p>
       }
     </a>
   </div>

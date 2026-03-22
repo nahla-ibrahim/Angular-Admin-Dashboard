@@ -11,14 +11,12 @@ import {
   faPieChart,
   faUsers,
   faQuestionCircle,
-  faChartArea,
   faChartSimple,
-  faChartColumn,
-  faLeaf,
+  faSquarePollHorizontal,
 } from '@fortawesome/free-solid-svg-icons';
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LayoutServices } from '../../Core/services/layout-services';
+import { LayoutServices } from '../../core/services/layout-services';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgClass, NgStyle } from '@angular/common';
 
@@ -40,9 +38,9 @@ export class Sidebar {
   ChartLine = faChartLine;
   QuestionCircle = faQuestionCircle;
   user = faUser;
-  ChartArea = faChartArea;
-  ChartSimple = faChartSimple;
-  ChartColumn = faChartColumn;
+  ChartBar = faChartSimple;
+  horizontalChart = faSquarePollHorizontal;
+
   KiwiBird = faEarlybirds;
   layoutServices = inject(LayoutServices);
   isOpenSidebar = this.layoutServices.openSidebar;
