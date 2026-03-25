@@ -47,6 +47,10 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./pages/charts-page/pie-chart/pie-chart').then((m) => m.PieChart),
       },
+      {
+        path: 'users',
+        loadComponent: () => import('./pages/users/users').then((m) => m.Users),
+      },
     ],
   },
 ];

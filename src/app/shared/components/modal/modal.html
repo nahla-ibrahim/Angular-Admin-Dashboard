@@ -1,0 +1,11 @@
+<div class="fixed inset-0 bg-black/40 flex items-center justify-center">
+  <div class="bg-white rounded-xl p-6 w-100">
+    <div class="flex justify-between mb-4">
+      <h2 class="text-lg font-bold">{{ title() }}</h2>
+      <button (click)="close.emit()">
+        <fa-icon [icon]="mark" class="cursor-pointer"></fa-icon>
+      </button>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

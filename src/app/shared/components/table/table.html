@@ -1,0 +1,18 @@
+<div class="overflow-x-auto max-w-full">
+  <table class="min-w-full bg-white rounded-xl overflow-hidden">
+    <thead class="bg-gray-100 text-left">
+      <tr>
+        @for (col of headers(); track col.key) {
+          <th class="p-3 text-sm font-semibold text-gray-600">
+            {{ col.label }}
+          </th>
+        }
+        <th class="p-3">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <ng-content></ng-content>
+    </tbody>
+  </table>
+</div>
