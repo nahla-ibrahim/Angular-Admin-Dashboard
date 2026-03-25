@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { MainLayout } from './layout/main-layout/main-layout';
-import { authGuard } from './core-2/guards/auth-guard';
-import { guestGuard } from './core-2/guards/guest-guard';
+import { authGuard } from './core/guards/auth-guard';
+import { guestGuard } from './core/guards/guest-guard';
 
 export const routes: Routes = [
   {

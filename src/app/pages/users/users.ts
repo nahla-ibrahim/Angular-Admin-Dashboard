@@ -1,8 +1,8 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Table } from '../../shared/components/table/table';
-import { UsersServices } from '../../core-2/services/users-services';
-import { user } from '../../core-2/interface/users';
-import { Users as UsersType } from '../../core-2/interface/users';
+import { UsersServices } from '../../core/services/users-services';
+import { user } from '../../core/interface/users';
+import { Users as UsersType } from '../../core/interface/users';
 import {
   FormBuilder,
   FormControl,

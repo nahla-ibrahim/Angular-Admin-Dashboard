@@ -42,8 +42,13 @@
             <td>{{ item.phone }}</td>
             <td>{{ item.role }}</td>
             <td class="flex justify-center items-center gap-5 cursor-pointer">
-              <button>edit</button>
-              <button>delete</button>
+              <button class="cursor-pointer text-primary hover:text-green-900">edit</button>
+              <button
+                class="cursor-pointer text-red-500 hover:text-red-800"
+                (click)="deleteUser(item)"
+              >
+                delete
+              </button>
             </td>
           </tr>
         }

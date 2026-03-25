@@ -16,7 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { LayoutServices } from '../../core-2/services/layout-services';
+import { LayoutServices } from '../../core/services/layout-services';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgClass, NgStyle } from '@angular/common';
 
