@@ -2,7 +2,7 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
-import { AuthServices } from '../../../core/services/auth-services';
+import { AuthServices } from '../../../core-2/services/auth-services';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +34,7 @@ export class Login {
         next: () => {
           this.router.navigate(['/dashboard']);
         },
-        error: (err) => {
+        error: (err: Error) => {
           this.errorMessage.set(err.message);
         },
       });

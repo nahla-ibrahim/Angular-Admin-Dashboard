@@ -11,6 +11,5 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 export class Modal {
   title = input<string>();
   close = output<void>();
-
   mark = faXmark;
 }

@@ -16,7 +16,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
-import { LayoutServices } from '../../core/services/layout-services';
+import { LayoutServices } from '../../core-2/services/layout-services';
 import { Dashboard } from '../../pages/dashboard/dashboard';
 
 @Component({
@@ -41,7 +41,7 @@ export class Navbar {
   arrowLeft = faArrowLeft;
 
   layoutServixes = inject(LayoutServices);
-  isOpenSidebar = this.layoutServixes.openSidebar;
+  isOpenSidebar: boolean = this.layoutServixes.openSidebar();
   isToggleOpened = false;
 
   openSidebar() {

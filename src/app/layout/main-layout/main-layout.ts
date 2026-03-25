@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from '../navbar/navbar';
 import { Sidebar } from '../sidebar/sidebar';
-import { LayoutServices } from '../../core/services/layout-services';
+import { LayoutServices } from '../../core-2/services/layout-services';
 import { NgClass } from '@angular/common';
 
 @Component({
@@ -14,5 +14,5 @@ import { NgClass } from '@angular/common';
 export class MainLayout {
   layoutServices = inject(LayoutServices);
 
-  isOpenSidebar = this.layoutServices.openSidebar;
+  isOpenSidebar: boolean = this.layoutServices.openSidebar();
 }

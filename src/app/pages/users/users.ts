@@ -1,7 +1,8 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { Table } from '../../shared/components/table/table';
-import { UsersServices } from '../../core/services/users-services';
-import { user } from '../../core/interface/users';
+import { UsersServices } from '../../core-2/services/users-services';
+import { user } from '../../core-2/interface/users';
+import { Users as UsersType } from '../../core-2/interface/users';
 import {
   FormBuilder,
   FormControl,
@@ -41,13 +42,13 @@ export class Users implements OnInit {
     this.error = null;
     const skip = (this.page - 1) * this.limit;
     this.userService.getAllUser(this.limit, skip, this.searchInput).subscribe({
-      next: (res) => {
+      next: (res: UsersType) => {
         this.data.set(res.users);
         this.loading.set(false);
         this.total = res.total;
       },
-      error: (err) => {
-        this.error = err;
+      error: (err: Error) => {
+        this.error = err.message;
         this.loading.set(false);
       },
     });
@@ -61,7 +62,7 @@ export class Users implements OnInit {
       next: () => {
         this.getAllUser();
       },
-      error: (err) => {
+      error: (err: Error) => {
         console.log(err);
       },
     });
