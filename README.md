@@ -1,59 +1,125 @@
-# Dashboard
+# 🚀 Admin Dashboard (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+A modern, responsive admin dashboard built using Angular, focused on clean architecture, reusable components, and real-world frontend practices.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🔗 Live Demo
 
-```bash
-ng serve
+<a href="angular-admin-dashboard-six.vercel.app/">
+    <strong>Live Demo 🔗</strong>
+  </a>
+
+---
+
+## 📌 Project Status
+
+🚧 This project is currently **in progress**.
+New features and improvements are continuously being added.
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* Login system
+* Route Guards (auth & Guest routes)
+
+### 🧱 Layout
+
+* Responsive Navbar & Sidebar
+* Collapsible sidebar
+* Mobile-friendly design
+
+### 📊 Dashboard
+
+* Statistics cards
+* Interactive charts (Line, Bar, Pie, Horizontal Bar)
+* Clean and modern UI
+
+### 📋 Users Management
+
+* Fetch users from API
+* Display data in a reusable table
+* Search functionality
+* Pagination
+* Delete user
+* Add new user
+
+---
+
+## 🧩 Reusable Components
+
+* Table Component
+* Chart Component
+* Modal Component
+* card
+
+---
+
+## ⚙️ Technologies Used
+
+* Angular 21
+* TypeScript
+* Tailwind CSS
+* Chart.js (ng2-charts)
+* RxJS
+* REST API (DummyJSON)
+
+---
+
+## 🧠 What I Learned
+
+* Building a scalable Angular project structure
+* Using reusable components effectively
+* Handling API integration with RxJS
+* Implementing charts and data visualization
+* Working with responsive layouts
+
+---
+
+## 🚀 Upcoming Features
+
+* Edit User (CRUD)
+* product & orders pages and CRUDs operation
+* Toastr notifications
+* Sorting in tables
+* Role-based access control
+* Better UI/UX enhancements
+* Performance optimizations
+
+---
+
+## 📂 Project Structure (Simplified)
+
+```
+src/app/
+  core/
+      services/
+      interface/
+      guards
+  shared/
+  pages/
+    auth/
+    dashboard/
+    users/
+    charts/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 💡 Notes
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* This project is part of my learning journey to become a Front-End Developer.
+* Code is structured to follow best practices and scalability.
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📬 Contact
 
-```bash
-ng generate --help
-```
+If you have any feedback or suggestions, feel free to reach out!
 
-## Building
+---
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+⭐ Don't forget to star the repo if you like it!
