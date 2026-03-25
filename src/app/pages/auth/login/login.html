@@ -1,4 +1,6 @@
-<div class="min-h-screen flex items-center justify-center bg-linear-to-b from-primary to-secondary">
+<div
+  class="min-h-screen flex items-center justify-center bg-linear-to-b from-primary to-secondary flex-col gap-7"
+>
   <form
     [formGroup]="loginForm"
     (ngSubmit)="onSubmit()"
@@ -59,4 +61,8 @@
       Login
     </button>
   </form>
+  <div class="bg-orange-100/70 px-8 py-6 rounded-xl shadow-md w-96 space-y-5">
+    <h2>user name : <span class="text-primary">emilys</span></h2>
+    <h2>password : <span class="text-primary">emilyspass</span></h2>
+  </div>
 </div>
