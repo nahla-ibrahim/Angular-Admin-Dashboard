@@ -6,9 +6,9 @@ A modern, responsive admin dashboard built using Angular, focused on clean archi
 
 ## 🔗 Live Demo
 
-<a href="angular-admin-dashboard-six.vercel.app/">
-    <strong>Live Demo 🔗</strong>
-  </a>
+<a href="https://angular-admin-dashboard-six.vercel.app/">
+    <strong> Live Demo 🔗 </strong>
+</a>
 
 ---
 
