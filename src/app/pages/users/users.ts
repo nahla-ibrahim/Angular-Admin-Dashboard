@@ -13,10 +13,12 @@ import {
 } from '@angular/forms';
 import { Modal } from '../../shared/components/modal/modal';
 import { NgClass } from '@angular/common';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',
-  imports: [Table, FormsModule, Modal, ReactiveFormsModule, NgClass],
+  imports: [Table, FormsModule, Modal, ReactiveFormsModule, NgClass, FaIconComponent],
   templateUrl: './users.html',
   styleUrl: './users.css',
 })
@@ -36,6 +38,8 @@ export class Users implements OnInit {
   searchInput: string = '';
   isModalOpen = signal<boolean>(false);
   roles = ['admin', 'user', 'administrator'];
+  Trash = faTrash;
+  pen = faPen;
 
   getAllUser() {
     this.loading.set(true);

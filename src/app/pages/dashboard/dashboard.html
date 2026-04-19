@@ -1,23 +1,37 @@
 <div class="bg-gray-200 flex items-center justify-between py-3">
   <div class="container mx-auto px-3 my-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-      <app-white-card>
-        <p class="text-gray-500">Users</p>
-        <h2 class="text-2xl font-bold">24</h2>
-      </app-white-card>
-      <app-white-card>
-        <p class="text-gray-500">Products</p>
-        <h2 class="text-2xl font-bold">62</h2>
-      </app-white-card>
-      <app-white-card>
-        <p class="text-gray-500">Orders</p>
-        <h2 class="text-2xl font-bold">44</h2>
-      </app-white-card>
-      <app-white-card>
-        <p class="text-gray-500">Orders</p>
-        <h2 class="text-2xl font-bold">44</h2>
-      </app-white-card>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+      @for (card of cards; track $index) {
+        <app-white-card>
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm text-gray-500">{{ card.title }}</p>
+              <h2 class="text-2xl font-semibold text-gray-800 mt-1">
+                {{ card.value }}
+              </h2>
+            </div>
+
+            <div class="p-3 rounded-xl" [ngClass]="card.iconBg">
+              <fa-icon [icon]="card.icon" class="text-lg"></fa-icon>
+            </div>
+          </div>
+
+          <div class="mt-4 flex items-center gap-2">
+            <span
+              class="text-xs font-medium px-2 py-1 rounded-full"
+              [ngClass]="
+                card.trend === 'up' ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'
+              "
+            >
+              {{ card.change }}
+            </span>
+
+            <span class="text-xs text-gray-400"> vs last month </span>
+          </div>
+        </app-white-card>
+      }
     </div>
+
     <!-- charts -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 auto-rows-fr">
       <app-white-card>
@@ -60,12 +74,27 @@
     <div class="bg-white p-4 rounded-xl shadow">
       <h3 class="text-lg font-semibold mb-4">Recent Users</h3>
 
-      @for (user of users; track $index) {
-        <div class="flex justify-between py-2 border-b">
-          <span>{{ user }} {{ user }}</span>
-          <span class="text-gray-500">{{ user }} email</span>
-        </div>
-      }
+      <app-table
+        [headers]="[
+          { key: 'firstName', label: 'first Name' },
+          { key: 'age', label: 'Age' },
+          { key: 'email', label: 'Email' },
+          { key: 'phone', label: 'Phone' },
+          { key: 'role', label: 'Role' },
+        ]"
+      >
+        @for (user of users; track $index) {
+          <tr
+            class="border-b bg-gray-100 hover:bg-gray-200 transition border-gray-500 [&>td]:py-4 [&>td]:px-5 [&>td]:text-sm [&>td]:text-gray-700 even:bg-gray-50"
+          >
+            <td>{{ user.firstName }}</td>
+            <td>{{ user.age }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.role }}</td>
+          </tr>
+        }
+      </app-table>
     </div>
     <button (click)="logout()" class="p-3 bg-primary rounded-2xl my-6 cursor-pointer">
       Logout
