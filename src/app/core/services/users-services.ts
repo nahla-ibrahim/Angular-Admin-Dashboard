@@ -20,9 +20,18 @@ export class UsersServices {
 
     return this.http.get<Users>(url).pipe(map((res) => res));
   }
+  getUserById(userId: number): Observable<user> {
+    let url = `${this.apiUrl}/${userId}`;
+    return this.http.get<user>(url).pipe(map((res) => res));
+  }
 
   deleteUser(userId: number) {
     let url = `${this.apiUrl}/${userId}`;
     return this.http.delete(url);
+  }
+
+  updateUser(userId: number, data: Partial<user>) {
+    let url = `${this.apiUrl}/${userId}`;
+    return this.http.put(url, data);
   }
 }
