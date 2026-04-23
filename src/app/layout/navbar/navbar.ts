@@ -17,11 +17,10 @@ import {
 
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
 import { LayoutServices } from '../../core/services/layout-services';
-import { Dashboard } from '../../pages/dashboard/dashboard';
 
 @Component({
   selector: 'app-navbar',
-  imports: [FontAwesomeModule, Dashboard],
+  imports: [FontAwesomeModule],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })

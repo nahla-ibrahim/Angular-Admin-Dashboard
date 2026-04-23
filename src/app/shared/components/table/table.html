@@ -4,8 +4,20 @@
       <thead class="bg-white border-b text-left">
         <tr>
           @for (col of headers(); track col.key) {
-            <th class="p-5 text-xs font-semibold text-gray-600 uppercase tracking-wide">
-              {{ col.label }}
+            <th
+              class="p-5 text-sm font-semibold uppercase tracking-wide bg-primary text-white cursor-pointer border-r-gray-200 border-r last:border-0 hover:bg-primary/80"
+              [ngClass]="col.key === sortKey() ? 'bg-primary/80' : ''"
+              (click)="sort.emit(col.key)"
+            >
+              <div class="flex items-center gap-1 justify-center">
+                {{ col.label }}
+
+                <fa-icon
+                  [icon]="sortDirection() === 'asc' ? desc : asc"
+                  class="transition-opacity"
+                  [ngClass]="col.key === sortKey() ? ' opacity-100' : 'opacity-0'"
+                ></fa-icon>
+              </div>
             </th>
           }
         </tr>

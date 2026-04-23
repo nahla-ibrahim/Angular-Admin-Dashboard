@@ -18,11 +18,10 @@ import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LayoutServices } from '../../core/services/layout-services';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { NgClass, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-sidebar',
-  imports: [FontAwesomeModule, RouterLink, RouterLinkActive, NgClass, NgStyle],
+  imports: [FontAwesomeModule, RouterLink, RouterLinkActive],
   templateUrl: './sidebar.html',
   styleUrl: './sidebar.css',
 })

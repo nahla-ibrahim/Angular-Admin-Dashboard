@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
 import { user, Users } from '../interface/users';
-import { UrlHandlingStrategy } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,8 +10,14 @@ export class UsersServices {
   http = inject(HttpClient);
   apiUrl = 'https://dummyjson.com/users';
 
-  getAllUser(limit: number, skip: number, search: string): Observable<Users> {
-    let url = `${this.apiUrl}?limit=${limit}&skip=${skip}&select=firstName,age,email,phone,role`;
+  getAllUser(
+    limit: number,
+    skip: number,
+    search: string,
+    sort: string,
+    dir: 'asc' | 'desc',
+  ): Observable<Users> {
+    let url = `${this.apiUrl}?limit=${limit}&skip=${skip}&select=firstName,age,email,phone,role&sortBy=${sort}&order=${dir}`;
 
     if (search) {
       url = `${this.apiUrl}/search?q=${search}&limit=${limit}&skip=${skip}`;

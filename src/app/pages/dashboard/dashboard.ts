@@ -19,17 +19,7 @@ import { Table } from '../../shared/components/table/table';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [
-    LineChart,
-    BarChart,
-    PieChart,
-    HorizontalBarChart,
-    WhiteCard,
-    Chart,
-    NgClass,
-    FaIconComponent,
-    Table,
-  ],
+  imports: [WhiteCard, Chart, NgClass, FaIconComponent, Table],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
