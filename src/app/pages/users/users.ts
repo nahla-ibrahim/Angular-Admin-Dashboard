@@ -9,7 +9,6 @@ import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { AlertModal } from '../../shared/components/alert-modal/alert-modal';
 import { Form } from './components/form/form';
 import { ToastrService } from 'ngx-toastr';
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-users',
@@ -30,8 +29,6 @@ export class Users implements OnInit {
   total = 0;
   toastr = inject(ToastrService);
   data = signal<user[]>([]);
-  loading = signal<boolean>(true);
-  error: string | null = null;
   searchInput: string = '';
   isModalOpen = signal<boolean>(false);
   isUpdateModalOpen = signal<boolean>(false);
@@ -43,39 +40,28 @@ export class Users implements OnInit {
   thisUserId!: number;
   Trash = faTrash;
   pen = faPen;
-  sortColumn = signal<string>('id');
-  sortDirection = signal<'asc' | 'desc'>('asc');
-  arrow = faArrowDown;
 
-  onSort(col: string) {
-    if (col === 'actions') return;
-    if (this.sortColumn() === col) {
-      this.sortDirection.set(this.sortDirection() === 'asc' ? 'desc' : 'asc');
-    } else {
-      this.sortColumn.set(col);
-      this.sortDirection.set('asc');
-    }
-    this.getAllUser();
-    console.log(col);
-  }
+  headers = [
+    { key: 'id', label: 'ID', sortable: true },
+    { key: 'firstName', label: 'first Name', sortable: true },
+    { key: 'age', label: 'Age', sortable: true },
+    { key: 'email', label: 'Email', sortable: true },
+    { key: 'phone', label: 'Phone', sortable: true },
+    { key: 'role', label: 'Role' },
+    { key: 'actions', label: 'Actions' },
+  ];
 
-  getAllUser() {
-    this.loading.set(true);
-    this.error = null;
+  getAllUser(sort: { col: string; dir: 'asc' | 'desc' } = { col: 'id', dir: 'asc' }) {
     const skip = (this.page - 1) * this.limit;
-    this.userService
-      .getAllUser(this.limit, skip, this.searchInput, this.sortColumn(), this.sortDirection())
-      .subscribe({
-        next: (res: UsersType) => {
-          this.data.set(res.users);
-          this.loading.set(false);
-          this.total = res.total;
-        },
-        error: (err: Error) => {
-          this.error = err.message;
-          this.loading.set(false);
-        },
-      });
+    this.userService.getAllUser(this.limit, skip, this.searchInput, sort.col, sort.dir).subscribe({
+      next: (res: UsersType) => {
+        this.data.set(res.users);
+        this.total = res.total;
+      },
+      error: (err: Error) => {
+        this.toastr.error('something wrong', 'failed');
+      },
+    });
   }
 
   ///////////pagination & search
@@ -99,7 +85,7 @@ export class Users implements OnInit {
 
   deleteUser(data: user) {
     this.delete.set(true);
-    this.thisUserId = data.id;
+    this.thisUserId = data.id!;
   }
   confirmDelete() {
     this.userService.deleteUser(this.thisUserId).subscribe({

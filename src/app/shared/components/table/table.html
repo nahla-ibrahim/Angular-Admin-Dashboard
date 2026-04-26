@@ -1,21 +1,27 @@
-<div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-200">
+<div class="bg-white rounded-lg overflow-hidden shadow-sm border border-gray-200">
   <div class="overflow-x-auto">
     <table class="w-full whitespace-nowrap">
       <thead class="bg-white border-b text-left">
         <tr>
           @for (col of headers(); track col.key) {
             <th
-              class="p-5 text-sm font-semibold uppercase tracking-wide bg-primary text-white cursor-pointer border-r-gray-200 border-r last:border-0 hover:bg-primary/80"
-              [ngClass]="col.key === sortKey() ? 'bg-primary/80' : ''"
-              (click)="sort.emit(col.key)"
+              class="p-5 text-sm font-semibold uppercase tracking-wide bg-primary text-white cursor-pointer border-r-gray-200 border-r last:border-0 hover:bg-primary/80 group"
+              [ngClass]="col.key === currentColumn ? 'bg-primary/80' : ''"
+              (click)="col.sortable ? sortAction(col.key) : ''"
             >
               <div class="flex items-center gap-1 justify-center">
                 {{ col.label }}
-
                 <fa-icon
-                  [icon]="sortDirection() === 'asc' ? desc : asc"
+                  [icon]="col.key === currentColumn && curentDir === 'asc' ? desc : asc"
                   class="transition-opacity"
-                  [ngClass]="col.key === sortKey() ? ' opacity-100' : 'opacity-0'"
+                  [ngClass]="
+                    !col.sortable
+                      ? 'opacity-0  group-hover:opacity-0'
+                      : col.key === currentColumn
+                        ? 'opacity-100'
+                        : 'opacity-20 group-hover:opacity-100'
+                  "
+                  [ngClass]=""
                 ></fa-icon>
               </div>
             </th>

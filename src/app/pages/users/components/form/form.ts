@@ -73,13 +73,20 @@ export class Form implements OnInit {
     if (this.theUser()) {
       this.edit();
     } else {
-      this.toastr.success('User Added Successfully', 'Success');
+      this.usersService.addNewUser(this.userForm.value).subscribe({
+        next: () => {
+          this.toastr.success('User Added Successfully', 'Success');
+        },
+        error: (err: Error) => {
+          this.toastr.error('something wrong , please try again', 'failed');
+        },
+      });
     }
   }
 
   edit() {
     this.usersService
-      .updateUser(this.theUser()!.id, {
+      .updateUser(this.theUser()?.id!, {
         firstName: this.firstName.value,
         age: this.age.value,
         email: this.email.value,
@@ -91,8 +98,7 @@ export class Form implements OnInit {
           this.toastr.success('User Updated Successfully', 'Success');
         },
         error: (err: Error) => {
-          console.log(err);
-          alert('Failed to update user. Please try again.');
+          this.toastr.error('User Failed To Update', 'Failed');
         },
       });
   }

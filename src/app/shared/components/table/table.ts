@@ -12,10 +12,21 @@ import { headers } from '../../../core/interface/users';
 })
 export class Table {
   headers = input<headers[]>([]);
-  arrow = input<string>('');
-  sortKey = input<string>('');
-  sortDirection = input<'asc' | 'desc'>('asc');
-  sort = output<string>();
+
+  currentColumn: string = '';
+  curentDir: 'asc' | 'desc' = 'asc';
+
+  sort = output<{ col: string; dir: 'asc' | 'desc' }>();
   asc = faArrowDown;
   desc = faArrowUp;
+
+  sortAction(col: string) {
+    if (col === this.currentColumn) {
+      this.curentDir = this.curentDir === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.currentColumn = col;
+      this.curentDir = 'asc';
+    }
+    this.sort.emit({ col: this.currentColumn, dir: this.curentDir });
+  }
 }

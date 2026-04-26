@@ -6,7 +6,7 @@ export interface Users {
 }
 
 export interface user {
-  id: number;
+  id?: number;
   firstName: string;
   age: string;
   email: string;
@@ -17,4 +17,5 @@ export interface user {
 export interface headers {
   key: string;
   label: string;
+  sortable?: boolean;
 }

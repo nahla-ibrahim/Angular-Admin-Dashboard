@@ -1,9 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { LineChart } from '../charts-page/line-chart/line-chart';
-import { BarChart } from '../charts-page/bar-chart/bar-chart';
-import { PieChart } from '../charts-page/pie-chart/pie-chart';
-import { HorizontalBarChart } from '../charts-page/horizontal-bar-chart/horizontal-bar-chart';
+
 import { WhiteCard } from '../../shared/components/white-card/white-card';
 import { Chart } from '../../shared/components/chart/chart';
 import { ChartsServices } from '../charts-page/services/charts-services';

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-alert-modal',
@@ -7,5 +7,5 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './alert-modal.css',
 })
 export class AlertModal {
-  title = input<string>();
+  text = input<string>();
 }

@@ -30,6 +30,11 @@ export class UsersServices {
     return this.http.get<user>(url).pipe(map((res) => res));
   }
 
+  addNewUser(newUser: any) {
+    let url = `${this.apiUrl}/add`;
+    return this.http.post<user>(url, newUser);
+  }
+
   deleteUser(userId: number) {
     let url = `${this.apiUrl}/${userId}`;
     return this.http.delete(url);
