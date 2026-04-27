@@ -17,7 +17,7 @@ export class UsersServices {
     sort: string,
     dir: 'asc' | 'desc',
   ): Observable<Users> {
-    let url = `${this.apiUrl}?limit=${limit}&skip=${skip}&select=firstName,age,email,phone,role&sortBy=${sort}&order=${dir}`;
+    let url = `${this.apiUrl}?limit=${limit}&skip=${skip}&select=id,firstName,age,email,phone,role&sortBy=${sort}&order=${dir}`;
 
     if (search) {
       url = `${this.apiUrl}/search?q=${search}&limit=${limit}&skip=${skip}`;

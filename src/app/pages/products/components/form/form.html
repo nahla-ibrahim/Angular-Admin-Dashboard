@@ -1,0 +1,93 @@
+<app-modal (close)="close.emit()" [title]="formTitle()">
+  <form class="space-y-4" [formGroup]="productForm" (ngSubmit)="submit()">
+    <div>
+      <input
+        type="text"
+        placeholder="Title"
+        class="w-full px-4 py-3 rounded-xl border focus:ring-1 focus:ring-primary outline-none border-gray-400 placeholder:text-gray-500 dark:placeholder:text-white/60 dark:text-white"
+        formControlName="title"
+        [ngClass]="{
+          'border-green-600 ': title.valid && (title.touched || title.dirty),
+          'border-red-600': title.invalid && (title.touched || title.dirty),
+        }"
+      />
+      @if (title.hasError('required') && (title.touched || title.dirty)) {
+        <span class="text-red-600 text-sm"> title is required </span>
+      }
+    </div>
+    <div>
+      <input
+        type="number"
+        placeholder="Price"
+        class="w-full px-4 py-3 rounded-xl border focus:ring-1 focus:ring-primary outline-none border-gray-400 placeholder:text-gray-500 dark:placeholder:text-white/60 dark:text-white"
+        formControlName="price"
+        [ngClass]="{
+          'border-green-600 ': price.valid && (price.touched || price.dirty),
+          'border-red-600': price.invalid && (price.touched || price.dirty),
+        }"
+      />
+      @if (price.hasError('required') && (price.touched || price.dirty)) {
+        <span class="text-red-600 text-sm"> price is required </span>
+      } @else if (price.hasError('pattern') && (price.touched || price.dirty)) {
+        <span class="text-red-600 text-sm"> please enter correct price</span>
+      }
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Brand"
+        class="w-full px-4 py-3 rounded-xl border focus:ring-1 focus:ring-primary outline-none border-gray-400 placeholder:text-gray-500 dark:placeholder:text-white/60 dark:text-white"
+        formControlName="brand"
+        [ngClass]="{
+          'border-green-600 ': brand.valid && (brand.touched || brand.dirty),
+          'border-red-600': brand.invalid && (brand.touched || brand.dirty),
+        }"
+      />
+      @if (brand.hasError('required') && (brand.touched || brand.dirty)) {
+        <span class="text-red-600 text-sm"> brand is required </span>
+      }
+    </div>
+    <div>
+      <input
+        type="stock"
+        placeholder="Stock"
+        class="w-full px-4 py-3 rounded-xl border focus:ring-1 focus:ring-primary outline-none border-gray-400 placeholder:text-gray-500 dark:placeholder:text-white/60 dark:text-white"
+        formControlName="stock"
+        [ngClass]="{
+          'border-green-600 ': stock.valid && (stock.touched || stock.dirty),
+          'border-red-600': stock.invalid && (stock.touched || stock.dirty),
+        }"
+      />
+      @if (stock.hasError('required') && (stock.touched || stock.dirty)) {
+        <span class="text-red-600 text-sm"> stock is required </span>
+      } @else if (stock.hasError('pattern') && (stock.touched || stock.dirty)) {
+        <span class="text-red-600 text-sm"> please enter correct stock</span>
+      }
+    </div>
+
+    <div>
+      <select
+        formControlName="category"
+        class="w-full px-4 py-3 rounded-xl border focus:ring-1 focus:ring-primary outline-none border-gray-400"
+      >
+        <option value="" disabled selected class="text-gray-500">Select category</option>
+        @for (category of categories(); track $index) {
+          <option [value]="category">
+            {{ category }}
+          </option>
+        }
+      </select>
+
+      @if (category.hasError('required') && (category.touched || category.dirty)) {
+        <span class="text-red-600 text-sm"> category is required </span>
+      }
+    </div>
+    <button
+      type="submit"
+      class="w-full py-4 rounded-2xl text-lg font-semibold text-white bg-linear-to-r from-primary to-secondary hover:scale-[1.02] transition-transform duration-200 shadow-lg cursor-pointer disabled:opacity-70 disabled:cursor-no-drop disabled:hover:scale-[1]"
+      [disabled]="!productForm.valid"
+    >
+      Confirm
+    </button>
+  </form>
+</app-modal>

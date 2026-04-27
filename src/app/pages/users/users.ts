@@ -3,7 +3,7 @@ import { Table } from '../../shared/components/table/table';
 import { UsersServices } from '../../core/services/users-services';
 import { user } from '../../core/interface/users';
 import { Users as UsersType } from '../../core/interface/users';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 import { AlertModal } from '../../shared/components/alert-modal/alert-modal';
@@ -18,7 +18,6 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class Users implements OnInit {
   userService = inject(UsersServices);
-  formBuilder = inject(FormBuilder);
 
   ngOnInit(): void {
     this.getAllUser();
@@ -43,7 +42,7 @@ export class Users implements OnInit {
 
   headers = [
     { key: 'id', label: 'ID', sortable: true },
-    { key: 'firstName', label: 'first Name', sortable: true },
+    { key: 'firstName', label: 'First Name', sortable: true },
     { key: 'age', label: 'Age', sortable: true },
     { key: 'email', label: 'Email', sortable: true },
     { key: 'phone', label: 'Phone', sortable: true },
