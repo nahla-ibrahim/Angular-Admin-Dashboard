@@ -16,11 +16,11 @@ export class Form {
   ngOnInit(): void {
     if (this.theProduct()) {
       this.productForm.setValue({
-        title: this.theProduct()!.title,
-        price: this.theProduct()!.price,
-        category: this.theProduct()!.category,
-        stock: this.theProduct()!.stock,
-        brand: this.theProduct()!.brand,
+        title: this.theProduct()?.title!,
+        price: this.theProduct()?.price!,
+        category: this.theProduct()?.category!,
+        stock: this.theProduct()?.stock!,
+        brand: this.theProduct()?.brand!,
       });
     }
     this.categoriesFunc();
@@ -75,14 +75,22 @@ export class Form {
     if (this.theProduct()) {
       this.edit();
     } else {
-      this.productServices.addNewProduct(this.productForm.value).subscribe({
-        next: () => {
-          this.toastr.success('Product Added Successfully', 'Success');
-        },
-        error: (err: Error) => {
-          this.toastr.error('something wrong , please try again', 'failed');
-        },
-      });
+      this.productServices
+        .addNewProduct({
+          title: this.theProduct()?.title!,
+          price: this.theProduct()?.price!,
+          category: this.theProduct()?.category!,
+          stock: this.theProduct()?.stock!,
+          brand: this.theProduct()?.brand!,
+        })
+        .subscribe({
+          next: () => {
+            this.toastr.success('Product Added Successfully', 'Success');
+          },
+          error: (err: Error) => {
+            this.toastr.error('something wrong , please try again', 'failed');
+          },
+        });
     }
   }
 

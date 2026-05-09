@@ -36,7 +36,7 @@ export class ProductsServices {
     return this.http.get<string[]>(url).pipe(map((res) => res));
   }
 
-  addNewProduct(newproduct: any) {
+  addNewProduct(newproduct: ProductType) {
     let url = `${this.apiUrl}/add`;
     return this.http.post<ProductType>(url, newproduct);
   }

@@ -32,8 +32,6 @@ export class Products {
   isUpdateModalOpen = signal<boolean>(false);
   delete = signal<boolean>(false);
   deleteAlert = signal<boolean>(false);
-  noUpdate = signal<boolean>(false);
-  update = signal<boolean>(false);
   thisProduct = signal<ProductType | null>(null);
   thisUserId!: number;
   Trash = faTrash;

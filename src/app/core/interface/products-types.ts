@@ -10,7 +10,8 @@ export interface ProductType {
   title: string;
   price: string;
   category: string;
-  rating: string;
+  rating?: string;
   stock: string;
   brand: string;
+  quantity?: number;
 }

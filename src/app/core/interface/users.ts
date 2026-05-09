@@ -13,9 +13,3 @@ export interface user {
   phone: string;
   role: 'admin' | 'moderator' | 'user';
 }
-
-export interface headers {
-  key: string;
-  label: string;
-  sortable?: boolean;
-}
