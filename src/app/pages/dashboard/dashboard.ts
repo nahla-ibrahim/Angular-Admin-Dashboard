@@ -79,7 +79,7 @@ export class Dashboard {
       change: '+12%',
       trend: 'up',
       icon: faUser,
-      iconBg: 'bg-indigo-100 text-indigo-600',
+      iconBg: 'bg-purple-200 text-black',
     },
     {
       title: 'Products',
@@ -87,7 +87,7 @@ export class Dashboard {
       change: '+5%',
       trend: 'up',
       icon: faToolbox,
-      iconBg: 'bg-emerald-100 text-emerald-600',
+      iconBg: 'bg-green-200 text-black',
     },
     {
       title: 'Orders',
@@ -95,7 +95,7 @@ export class Dashboard {
       change: '-3%',
       trend: 'down',
       icon: faCartArrowDown,
-      iconBg: 'bg-rose-100 text-rose-600',
+      iconBg: 'bg-rose-200 text-black',
     },
     {
       title: 'Revenue',
@@ -103,7 +103,7 @@ export class Dashboard {
       change: '+8%',
       trend: 'up',
       icon: faSackDollar,
-      iconBg: 'bg-amber-100 text-amber-600',
+      iconBg: 'bg-amber-200 text-black',
     },
   ];
 

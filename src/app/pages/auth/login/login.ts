@@ -3,10 +3,13 @@ import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angu
 import { Router } from '@angular/router';
 import { NgClass } from '@angular/common';
 import { AuthServices } from '../../../core/services/auth-services';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { single } from 'rxjs';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, NgClass],
+  imports: [ReactiveFormsModule, NgClass, FaIconComponent],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -15,10 +18,13 @@ export class Login {
   router = inject(Router);
   authServices = inject(AuthServices);
   errorMessage = signal<string>('');
+  userValue = 'emilys';
+  passValue = 'emilyspass';
+  faEye = faEye;
 
   loginForm = this.fb.group({
-    userName: ['', [Validators.required, Validators.minLength(3)]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    userName: [this.userValue, [Validators.required, Validators.minLength(3)]],
+    password: [this.passValue, [Validators.required, Validators.minLength(6)]],
   });
   get userName() {
     return this.loginForm.get('userName') as FormControl;
@@ -38,6 +44,19 @@ export class Login {
           this.errorMessage.set(err.message);
         },
       });
+    }
+  }
+
+  shawPassword = signal<boolean>(false);
+  changePasswordType() {
+    this.shawPassword.set(!this.shawPassword());
+    const passwordInput = document.querySelector(
+      'input[formControlName="password"]',
+    ) as HTMLInputElement;
+    if (this.shawPassword()) {
+      passwordInput.type = 'text';
+    } else {
+      passwordInput.type = 'password';
     }
   }
 }

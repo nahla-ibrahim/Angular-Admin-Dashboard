@@ -1,8 +1,8 @@
 @if (isOpenSidebar()) {
-  <div class="fixed inset-0 bg-gray-600/55 z-40 lg:hidden"></div>
+  <div class="fixed inset-0 bg-gray-600/55 dark:bg-primary-dark/55 z-40 lg:hidden"></div>
 }
 <aside
-  class="bg-primary h-screen transition-all duration-300 ease-in-out p-4 overflow-y-auto fixed overflow-scroll z-50 lg:translate-x-0 shadow-lg"
+  class="bg-primary-dark h-full transition-all duration-300 ease-in-out p-4 overflow-y-auto fixed overflow-scroll z-100 lg:translate-x-0 shadow-lg dark:bg-linear-to-b dark:bg-black dark:text-primary dark:border-r dark:border-gray-800"
   [class.w-74]="isOpenSidebar()"
   [class.w-26]="!isOpenSidebar()"
   [class.-translate-x-full]="!isOpenSidebar()"
@@ -14,9 +14,9 @@
       (click)="layoutServices.toggleSidebar()"
     ></fa-icon>
   } @else {
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <fa-icon [icon]="KiwiBird" class="text-3xl cursor-pointer"></fa-icon>
+    <div class="flex items-center justify-between dark:text-gray-200 cursor-pointer">
+      <div class="flex items-center gap-2" routerLink="/dashboard">
+        <fa-icon [icon]="KiwiBird" class="text-3xl cursor-pointer dark:text-primary"></fa-icon>
         <div class="flex flex-col">
           <h1 class="text-xl font-semibold">Admin</h1>
           <h1 class="text-xl font-semibold">Dashboard</h1>
@@ -25,19 +25,19 @@
 
       <fa-icon
         [icon]="arrowLeft"
-        class="flex gap-3 py-3 transition-all cursor-pointer mb-1 text-2xl"
+        class="flex gap-3 py-3 transition-all cursor-pointer mb-1 text-2xl dark:text-primary"
         (click)="layoutServices.toggleSidebar()"
       ></fa-icon>
     </div>
   }
   <!-- pages -->
   <div class="my-4">
-    <p class="text-gray-800 mb-2">pages</p>
+    <p class="dark:text-gray-400 mb-2">pages</p>
 
     <a
       routerLink="/dashboard"
-      routerLinkActive="bg-gray-800 text-white opacity-100"
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="Home" class="text-xl"></fa-icon>
@@ -48,8 +48,8 @@
 
     <a
       routerLink="/users"
-      routerLinkActive="bg-gray-800 text-white opacity-100"
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-apointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="Users" class="text-xl cursor-pointer"></fa-icon>
@@ -61,8 +61,8 @@
 
     <a
       routerLink="/products"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white  dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="Industry" class="text-xl cursor-pointer"></fa-icon>
@@ -73,8 +73,8 @@
     </a>
     <a
       routerLink="/orders"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white  dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="CartShopping" class="text-xl cursor-pointer"></fa-icon>
@@ -84,8 +84,8 @@
     </a>
     <a
       routerLink="/calender"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="Calendar" class="text-xl cursor-pointer"></fa-icon>
@@ -96,8 +96,8 @@
     </a>
     <a
       routerLink="/FQA"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="QuestionCircle" class="text-xl cursor-pointer"></fa-icon>
@@ -110,11 +110,11 @@
   <!-- Analytics -->
 
   <div class="my-4">
-    <p class="text-gray-800 mb-2">Analytics</p>
+    <p class="dark:text-gray-400 mb-2">Analytics</p>
     <a
       routerLink="/pieChart"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="PieChart" class="text-xl cursor-pointer"></fa-icon>
@@ -125,8 +125,8 @@
 
     <a
       routerLink="/lineChart"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="ChartLine" class="text-xl cursor-pointer"></fa-icon>
@@ -136,8 +136,8 @@
     </a>
     <a
       routerLink="/barChart"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="ChartBar" class="text-xl cursor-pointer"></fa-icon>
@@ -147,8 +147,8 @@
     </a>
     <a
       routerLink="/horizontalBarChart"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLinkActive="bg-primary-dark text-white  dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="horizontalChart" class="text-xl cursor-pointer"></fa-icon>
@@ -160,11 +160,11 @@
 
   <!-- profile -->
   <div class="my-4">
-    <p class="text-gray-800 mb-2">Profile</p>
+    <p class="dark:text-gray-400 mb-2">Profile</p>
     <a
-      routerLink="/products"
-      routerLinkActive="bg-gray-800 text-white "
-      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-800 hover:text-white transition-all duration-200 cursor-pointer mb-1 opacity-70"
+      routerLink="/profile"
+      routerLinkActive="bg-primary-dark text-white dark:text-gray-300"
+      class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-primary-dark hover:text-white transition-all duration-200 cursor-pointer mb-1 dark:hover:text-gray-300"
       [class.justify-center]="!isOpenSidebar()"
     >
       <fa-icon [icon]="user" class="text-xl cursor-pointer"></fa-icon>

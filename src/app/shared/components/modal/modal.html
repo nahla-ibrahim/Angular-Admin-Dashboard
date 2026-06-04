@@ -1,6 +1,10 @@
-<div class="fixed inset-0 bg-black/40 flex items-center justify-center">
-  <div class="bg-white rounded-xl p-6 w-200 max-w-11/12 max-h-screen">
-    <div class="flex justify-between mb-4 bg-primary/50 p-5 rounded-xl">
+<div class="fixed inset-0 bg-black/60 flex items-center justify-center z-150">
+  <div
+    class="bg-white rounded-xl p-6 w-200 max-w-11/12 max-h-screen dark:bg-linear-to-t dark:from-primary-dark dark:to-primary via-primary-dark"
+  >
+    <div
+      class="flex justify-between mb-4 bg-primary/50 p-5 rounded-xl dark:bg-linear-to-b dark:from-primary-dark dark:to-black dark:text-gray-300"
+    >
       <h2 class="text-lg font-bold">{{ title() }}</h2>
       <button (click)="close.emit()">
         <fa-icon [icon]="mark" class="cursor-pointer hover:text-red-700 text-lg"></fa-icon>

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faCalendar,
@@ -17,10 +17,11 @@ import {
 
 import { faEarlybirds } from '@fortawesome/free-brands-svg-icons';
 import { LayoutServices } from '../../core/services/layout-services';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
@@ -49,6 +50,21 @@ export class Navbar {
 
   openToggle() {
     this.isToggleOpened = !this.isToggleOpened;
-    console.log(this.isToggleOpened);
+  }
+
+  ngOnInit(): void {
+    const darkMode = localStorage.getItem('darkMode');
+    if (darkMode === 'dark') {
+      this.isDark.set(true);
+      document.documentElement.classList.add('dark');
+    }
+  }
+  isDark = signal<boolean>(false);
+  toggleDarkMode() {
+    this.isDark.set(!this.isDark());
+
+    let x = document.documentElement.classList.toggle('dark', this.isDark());
+
+    localStorage.setItem('darkMode', this.isDark() ? 'dark' : 'light');
   }
 }

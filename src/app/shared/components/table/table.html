@@ -5,7 +5,7 @@
         <tr>
           @for (col of headers(); track col.key) {
             <th
-              class="p-5 text-sm font-semibold uppercase tracking-wide bg-primary text-white cursor-pointer border-r-gray-200 border-r last:border-0 hover:bg-primary/80 group"
+              class="p-5 text-sm font-semibold uppercase tracking-wide bg-primary text-white cursor-pointer border-r-gray-200 border-r last:border-0 hover:bg-primary/80 group dark:bg-linear-to-b from-primary-dark to-black dark:text-gray-300"
               [ngClass]="{
                 'bg-primary/80': col.key === currentColumn,
                 'hover:bg-primary/80': col.sortable,
