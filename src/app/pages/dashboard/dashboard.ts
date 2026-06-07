@@ -1,6 +1,4 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
-
 import { WhiteCard } from '../../shared/components/white-card/white-card';
 import { Chart } from '../../shared/components/chart/chart';
 import { ChartsServices } from '../charts-page/services/charts-services';

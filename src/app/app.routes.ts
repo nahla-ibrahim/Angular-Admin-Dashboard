@@ -62,6 +62,10 @@ export const routes: Routes = [
         path: 'faq',
         loadComponent: () => import('./pages/faq/faq').then((m) => m.Faq),
       },
+      {
+        path: 'profile',
+        loadComponent: () => import('./pages/profile/profile').then((m) => m.Profile),
+      },
     ],
   },
 ];
