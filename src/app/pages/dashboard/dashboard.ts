@@ -21,12 +21,8 @@ import { Table } from '../../shared/components/table/table';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-  router = inject(Router);
   chartService = inject(ChartsServices);
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
+
   users = [
     {
       firstName: 'John',

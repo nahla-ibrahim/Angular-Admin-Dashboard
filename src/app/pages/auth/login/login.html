@@ -21,7 +21,7 @@
         class="w-full border-b p-2 rounded focus:outline-none dark:text-gray-300"
         formControlName="userName"
         [ngClass]="{
-          'border-green-600 dark:border-green-900': userName.valid,
+          'border-primary dark:border-primary': userName.valid,
           'border-red-800': userName.invalid && (userName.touched || userName.dirty),
         }"
       />
@@ -40,7 +40,7 @@
         formControlName="password"
         class="w-full border-b p-2 rounded focus:outline-none dark:text-gray-300"
         [ngClass]="{
-          'border-green-600 dark:border-green-900': password.valid,
+          'border-primary dark:border-primary': password.valid,
           'border-red-800': password.invalid && (password.touched || password.dirty),
         }"
       />
@@ -66,5 +66,4 @@
       Login
     </button>
   </form>
-  s
 </div>
