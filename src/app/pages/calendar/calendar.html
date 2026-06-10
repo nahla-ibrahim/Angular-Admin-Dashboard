@@ -1,0 +1,102 @@
+<div class="min-h-screen bg-gray-200 dark:bg-black p-6 dark:text-white">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-8">
+      <h1 class="text-3xl font-bold text-gray-800 dark:text-white">Calendar</h1>
+
+      <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm md:text-base">
+        Manage your events and schedule
+      </p>
+    </div>
+    <div
+      class="grid grid-cols-1 lg:grid-cols-4 gap-6 bg-white dark:bg-primary-dark rounded-3xl shadow-sm p-6"
+    >
+      <!-- sidebar -->
+
+      <div
+        class="bg-white dark:bg-black rounded-3xl shadow-lg border border-gray-200 dark:border-white/10 p-5 h-fit"
+      >
+        <div class="mb-6">
+          <h2 class="text-xl font-bold text-gray-800 dark:text-white">Upcoming Events</h2>
+
+          <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Your scheduled events</p>
+        </div>
+
+        <div class="space-y-4">
+          @for (event of events(); track event.id) {
+            <div
+              class="p-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#0f172a]"
+            >
+              <div class="flex items-start gap-3">
+                <div
+                  class="w-3 h-3 rounded-full mt-2"
+                  [style.background]="event.backgroundColor"
+                ></div>
+
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-semibold text-gray-800 dark:text-white truncate">
+                    {{ event.title }}
+                  </h3>
+
+                  <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">
+                    {{ event.date }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+      <!-- calender -->
+      <div
+        class="rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-[#0b1120] p-2 lg:col-span-3"
+      >
+        <full-calendar [options]="calendarOptions" #calendar></full-calendar>
+      </div>
+    </div>
+  </div>
+</div>
+@if (modalOpen()) {
+  <app-modal title="Add New Event" (close)="closeModal()">
+    <div class="space-y-5">
+      <input
+        type="text"
+        [(ngModel)]="eventTitle"
+        (keydown.enter)="createEvent()"
+        placeholder="enter event title..."
+        class="w-full p-4 rounded-2xl border border-gray-300 dark:border-white/10 bg-white dark:bg-[#0f172a] dark:text-white outline-none focus:ring-2 focus:ring-primary transition"
+      />
+      <div class="flex items-center gap-3">
+        <button
+          (click)="closeModal()"
+          class="flex-1 p-3 rounded-2xl border border-gray-300 dark:border-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition cursor-pointer"
+        >
+          Cancel
+        </button>
+        <button
+          (click)="createEvent()"
+          class="flex-1 p-3 rounded-2xl bg-primary text-white hover:opacity-90 transition cursor-pointer font-medium shadow-md"
+        >
+          Add Event
+        </button>
+      </div>
+    </div>
+  </app-modal>
+}
+@if (deleteModalOpen()) {
+  <app-alert-modal text="Are you sure you want to delete this order?">
+    <div class="flex justify-end gap-4 mt-6">
+      <button
+        class="px-5 py-2 rounded-lg bg-gray-400 hover:bg-gray-600 hover:text-gray-300 transition cursor-pointer"
+        (click)="deleteModalOpen.set(false)"
+      >
+        Cancel
+      </button>
+      <button
+        class="px-5 py-2 rounded-lg bg-red-500 hover:bg-red-700 hover:text-gray-300 transition cursor-pointer"
+        (click)="confirmDelete()"
+      >
+        Delete
+      </button>
+    </div>
+  </app-alert-modal>
+}
