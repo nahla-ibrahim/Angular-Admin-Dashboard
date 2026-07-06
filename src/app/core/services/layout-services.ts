@@ -9,4 +9,8 @@ export class LayoutServices {
   toggleSidebar() {
     this.openSidebar.set(!this.openSidebar());
   }
+
+  closeSidebar() {
+    this.openSidebar.set(false);
+  }
 }

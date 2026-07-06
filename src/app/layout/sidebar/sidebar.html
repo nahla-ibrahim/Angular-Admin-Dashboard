@@ -1,16 +1,19 @@
 @if (isOpenSidebar()) {
-  <div class="fixed inset-0 bg-gray-600/55 dark:bg-primary-dark/55 z-40 lg:hidden"></div>
+  <div
+    class="fixed inset-0 bg-gray-600/55 dark:bg-primary-dark/55 z-40"
+    (click)="layoutServices.closeSidebar()"
+  ></div>
 }
 <aside
-  class="bg-primary-dark h-full transition-all duration-300 ease-in-out p-4 overflow-y-auto fixed overflow-scroll z-100 lg:translate-x-0 shadow-lg dark:bg-linear-to-b dark:bg-black dark:text-primary dark:border-r dark:border-gray-800"
+  class="bg-primary-dark h-screen transition-all duration-300 ease-in-out p-4 overflow-y-auto fixed z-100 translate-x-0 shadow-lg dark:bg-linear-to-b dark:bg-dark dark:text-primary dark:border-r dark:border-gray-700 lg:translate-x-0"
   [class.w-74]="isOpenSidebar()"
   [class.w-26]="!isOpenSidebar()"
-  [class.-translate-x-full]="!isOpenSidebar()"
+  [class.translate-x-[-100%]]="!isOpenSidebar()"
 >
   @if (!isOpenSidebar()) {
     <fa-icon
       [icon]="arrowRight"
-      class="flex items-center gap-3 px-4 py-3 transition-all duration-200 cursor-pointer mb-1 text-2xl"
+      class="flex items-center gap-3 px-4 py-3 transition-all duration-200 cursor-pointer mb-1 text-2xl dark:text-primary justify-center"
       (click)="layoutServices.toggleSidebar()"
     ></fa-icon>
   } @else {
