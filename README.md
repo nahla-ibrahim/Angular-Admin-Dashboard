@@ -10,42 +10,45 @@ A modern, responsive admin dashboard built using Angular, focused on clean archi
     <strong> Live Demo 🔗 </strong>
 </a>
 
----
-
-## 📌 Project Status
-
-🚧 This project is currently **in progress**.
-New features and improvements are continuously being added.
-
----
 
 ## ✨ Features
 
 ### 🔐 Authentication
 
 * Login system
-* Route Guards (auth & Guest routes)
+* Route Guards (Auth & Guest Guards)
 
 ### 🧱 Layout
 
 * Responsive Navbar & Sidebar
-* Collapsible sidebar
+* Collapsible Sidebar
 * Mobile-friendly design
+* Dark Mode support
 
 ### 📊 Dashboard
 
 * Statistics cards
-* Interactive charts (Line, Bar, Pie, Horizontal Bar)
+* Interactive charts (Line, Bar, Pie, and Horizontal Bar)
+* Recent activity and notifications
 * Clean and modern UI
 
-### 📋 Users Management
+### 📋 Users & Products Management
 
-* Fetch users from API
-* Display data in a reusable table
-* Search functionality
-* Pagination
-* Delete user
-* Add new user
+* Fetch data from API
+* Reusable table with sorting, search, and pagination
+* CRUD operations
+* Responsive data management interfaces
+
+### 📅 Calendar & Productivity
+
+* Interactive calendar with event creation and deletion
+* Persistent events using Local Storage
+
+### ❓ Additional Pages
+
+* Profile page
+* FAQ page
+
 
 ---
 
@@ -54,7 +57,8 @@ New features and improvements are continuously being added.
 * Table Component
 * Chart Component
 * Modal Component
-* card
+* Card Component
+* Alert Modal Component
 
 ---
 
@@ -79,18 +83,6 @@ New features and improvements are continuously being added.
 
 ---
 
-## 🚀 Upcoming Features
-
-* Edit User (CRUD)
-* product & orders pages and CRUDs operation
-* Toastr notifications
-* Sorting in tables
-* Role-based access control
-* Better UI/UX enhancements
-* Performance optimizations
-
----
-
 ## 📂 Project Structure (Simplified)
 
 ```
@@ -100,11 +92,23 @@ src/app/
       interface/
       guards
   shared/
+       components/
+  layout/
+        footer/
+        main-layout/
+        navbar/
+        sidebar/
   pages/
-    auth/
-    dashboard/
-    users/
-    charts/
+      auth/
+            login/
+      calendar/
+      charts-page/ 
+      dashboard/
+      faq/
+      orders/
+      products/
+      profile/
+      users/  
 ```
 
 ---
@@ -112,7 +116,6 @@ src/app/
 ## 💡 Notes
 
 * This project is part of my learning journey to become a Front-End Developer.
-* Code is structured to follow best practices and scalability.
 
 ---
 
