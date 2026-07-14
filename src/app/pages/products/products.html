@@ -13,7 +13,7 @@
         class="bg-primary py-2 rounded-lg mb-4 cursor-pointer hover:text-gray-300 px-3 dark:bg-linear-to-b from-primary/80 to-black dark:text-gray-300 dark:hover:text-gray-200 dark:border dark:border-gray-700"
         (click)="add()"
       >
-        Add New product
+        Add New Product
       </button>
     </div>
 
@@ -66,14 +66,14 @@
       </button>
     </div>
 
-    <!-- ///////////// Add new user modal ///////////// -->
+    <!-- ///////////// Add new product modal ///////////// -->
     @if (isModalOpen()) {
-      <app-form (close)="isModalOpen.set(false)" formTitle="Add New User"></app-form>
+      <app-form (close)="isModalOpen.set(false)" formTitle="Add New Product"></app-form>
     }
     @if (isUpdateModalOpen()) {
       <app-form
         (close)="isUpdateModalOpen.set(false)"
-        formTitle="Edit User"
+        formTitle="Edit Product"
         [theProduct]="thisProduct()"
       ></app-form>
     }
